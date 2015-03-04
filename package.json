@@ -3,16 +3,25 @@
   "version": "1.0.0",
   "description": "T3 basic webapp generator with Vagrant integration",
   "main": "index.php",
-  "scripts": {
-    "test": "runtest"
-  },
   "keywords": [
     "yeoman-generator",
     "vagrant"
   ],
   "author": "Ian White",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
   "license": "MIT",
   "dependencies": {
     "yeoman-generator": "~0.18.10"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
   }
 }
