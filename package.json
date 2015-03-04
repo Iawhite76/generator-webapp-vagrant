@@ -1,0 +1,15 @@
+{
+  "name": "generator-t3-webapp-vagrant",
+  "version": "1.0.0",
+  "description": "T3 basic webapp generator with Vagrant integration",
+  "main": "index.php",
+  "scripts": {
+    "test": "runtest"
+  },
+  "keywords": [
+    "yeoman-generator",
+    "vagrant"
+  ],
+  "author": "Ian White",
+  "license": "MIT"
+}
