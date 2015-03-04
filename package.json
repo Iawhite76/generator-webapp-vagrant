@@ -11,5 +11,8 @@
     "vagrant"
   ],
   "author": "Ian White",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "yeoman-generator": "~0.18.10"
+  }
 }
