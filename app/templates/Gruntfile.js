@@ -209,7 +209,13 @@ module.exports = function (grunt) {
 
     shell: {
       startVagrantServer: {
-        command: 'sudo vagrant up'
+        command: 'sudo vagrant up',
+        failOnError: false // prevents EPIPE error if user hits return again after entering sudo password
+      },
+      pleaseWait: {
+        command: function () {
+          return 'echo Please wait: if this is your first time to run grunt the vagrant machine may take a few minutes to initialize.';
+        }
       }
     }
 
@@ -221,6 +227,7 @@ module.exports = function (grunt) {
     'jshint',
     'less',
     'shell:startVagrantServer',
+    'shell:pleaseWait',
     'watch'
   ]);
 
