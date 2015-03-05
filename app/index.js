@@ -357,14 +357,14 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
     this.write('srv/' + this.projectName + '/index.php', this.indexFile);
     this.copy('main.less', 'srv/' + this.projectName + '/less/main.less');
     this.copy('blank.txt', 'srv/' + this.projectName + '/css/main.css');
-    this.copy('main.js', 'srv/' + this.projectName + '/js/main.js');
+    this.copy('js/main.js', 'srv/' + this.projectName + '/js/main.js');
     this.copy('blank.gif', 'srv/' + this.projectName + '/img/blank.gif');
     
     this.mkdir('provisioning');
-    this.copy('vagrant_install.sh', 'provisioning/vagrant_install.sh');
+    this.copy('vagrant/vagrant_install.sh', 'provisioning/vagrant_install.sh');
 
     if (this.brightcove) {
-      this.copy('BrightcoveExperiences.js', 'srv/' + this.projectName + '/js/BrightcoveExperiences.js');
+      this.copy('js/BrightcoveExperiences.js', 'srv/' + this.projectName + '/js/BrightcoveExperiences.js');
     }
     
     var context = {
@@ -381,7 +381,7 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
     }
 
     this.mkdir('provisioning/vagrant_files/etc');
-    this.template('hosts', 'provisioning/vagrant_files/etc/hosts', context);
+    this.template('vagrant/hosts', 'provisioning/vagrant_files/etc/hosts', context);
 
 
     this.mkdir('provisioning/vagrant_files/etc/apache2/sites-available');
@@ -389,7 +389,7 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
   },
 
   projectfiles: function () {
-    this.copy('Vagrantfile', 'Vagrantfile');
+    this.copy('vagrant/Vagrantfile', 'Vagrantfile');
     this.copy('README.md', 'README.md');
     this.copy('_package.json', 'srv/' + this.projectName + '/package.json');
     this.copy('_bower.json', 'srv/' + this.projectName + '/bower.json');
