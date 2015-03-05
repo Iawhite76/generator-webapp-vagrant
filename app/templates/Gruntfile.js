@@ -13,8 +13,8 @@ module.exports = function (grunt) {
 
     // Automatically inject Bower JS and CSS components into the HTML blocks
     bowerInstall: {
-      app: {
-        src: ['app/index.html'],
+      srv: {
+        src: ['./index.html'],
         exclude: [
           <% if (includeModernizr) { %>'bower_components/modernizr/*'<% } if (includeModernizr && includeRespond) { %>,<% } %>
           <% if (includeRespond) { %>'bower_components/respond/*'<% } if (includeBootstrap) { %>,<% } %>
@@ -54,7 +54,7 @@ module.exports = function (grunt) {
       options: {
         port: 8080,
         hostname: '0.0.0.0',
-        base: 'app',
+        base: 'srv',
         open: true
       },
 
@@ -66,7 +66,7 @@ module.exports = function (grunt) {
               require('connect-livereload')(),
               connect.static('.tmp'),
               connect().use('/bower_components', connect.static('./bower_components')),
-              connect.static('app')
+              connect.static('srv')
             ];
           }
         }
@@ -87,7 +87,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           dot: true,
-          cwd: 'app',
+          cwd: '.',
           dest: 'dist',
           src: [
             '*.{ico,png,txt}',
@@ -129,7 +129,7 @@ module.exports = function (grunt) {
       },
       all: [
         'Gruntfile.js',
-        'app/js/{,*/}*.js'
+        './js/{,*/}*.js'
       ]
     },
 
@@ -137,7 +137,7 @@ module.exports = function (grunt) {
     less: {
       dist: {
         files: {
-          'app/css/main.css': ['app/less/main.less']
+          './css/main.css': ['./less/main.less']
         }
       }
     },
@@ -169,7 +169,7 @@ module.exports = function (grunt) {
           }
         }
       },
-      html: 'app/index.html'
+      html: './index.html'
     },
 
     // Performs rewrites based on rev and the useminPrepare configuration
@@ -188,17 +188,17 @@ module.exports = function (grunt) {
         tasks: ['bowerInstall']
       },
       js: {
-        files: ['app/js/*.js'],
+        files: ['./js/*.js'],
         tasks: ['newer:jshint:all'],
         options: {
           livereload: 35729
         }
       },
       styles: {
-        files: ['app/css/*.css']
+        files: ['./css/*.css']
       },
       less: {
-        files: ['app/less/*.less'],
+        files: ['./less/*.less'],
         tasks: ['less']
       },
       gruntfile: {
@@ -209,7 +209,7 @@ module.exports = function (grunt) {
         options: {
           livereload: 35729
         },
-        files: ['*', 'app/*', 'app/js/*.js', 'app/css/*.css', 'app/{,*/}*.html', 'app/{,*/}*.php']
+        files: ['*', './*', './js/*.js', './css/*.css', './{,*/}*.html', './{,*/}*.php']
       }
     }
 
