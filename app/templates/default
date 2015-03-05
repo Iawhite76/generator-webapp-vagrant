@@ -12,8 +12,8 @@
    # ----------------------------------------------------------------------
 
    ServerAdmin upsdev@t-3.com
-   ServerName houston.ups.dev
-   ServerAlias www.houston.ups.dev houston.ups.dev
+   ServerName <%= server_name %>
+   ServerAlias www.<%= server_name %> <%= server_name %>
 
    # ----------------------------------------------------------------------
    # | Environment Variables                                              |
@@ -64,16 +64,6 @@
        EnableMMAP Off
    </Directory>
 
-   # ----------------------------------------------------------------------
-   # | Logging                                                            |
-   # ----------------------------------------------------------------------
-
-   ErrorLog ${APACHE_LOG_DIR}/upshouston_error.log
-
-   # Possible values include: debug, info, notice, warn, error, crit,
-   # alert, emerg.
-   LogLevel warn
-
-   CustomLog ${APACHE_LOG_DIR}/upshouston_access.log combined
+   # TODO ADD BACK LOGGING & FIX APACHE_LOG_DIR IS NOT DEFINED ERROR
 
 </VirtualHost>

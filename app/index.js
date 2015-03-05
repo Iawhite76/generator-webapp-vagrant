@@ -59,10 +59,10 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
     // Ask scaffolding questions
     var prompts = [
       {
-          type    : 'input',
-          name    : 'projectName',
-          message : 'Your project name',
-          default : 'ups-my-project'
+        type    : 'input',
+        name    : 'projectName',
+        message : 'Your project name',
+        default : 'ups-my-project'
       },
       {
         type: "confirm",
@@ -151,7 +151,13 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
         when: function(response) {
           return ( response.includeBootstrap && !response.disableResponsive )
         }
-      }
+      },
+      {
+        type    : 'input',
+        name    : 'serverName',
+        message : 'Project server name (e.g. houston.ups.dev)?',
+        default : 'myproject.ups.dev'
+      },
     ];
 
     // Save user-selected options from prompts
@@ -165,6 +171,7 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
       this.disableResponsive = props.disableResponsive;
       this.oldIE             = props.oldIE;
       this.projectName       = props.projectName;
+      this.serverName        = props.serverName;
       this.includeRespond    = (this.oldIE && !this.disableResponsive && this.includeBootstrap) ? true : false;
 
       // Answers to Bootstrap plugin questions
@@ -221,7 +228,8 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
     this.copy('vagrant_install.sh', 'provisioning/vagrant_install.sh');
 
     var context = {
-      project_name: this.projectName
+      project_name: this.projectName,
+      server_name: this.serverName
     }
 
     this.mkdir('provisioning/vagrant_files/etc');
