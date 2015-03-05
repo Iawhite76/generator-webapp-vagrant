@@ -236,29 +236,85 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
           return (response.setEnvVars)
         }
       },
+      {
+        type: "checkbox",
+        name: "miscOptions",
+        message: "Options to add tagging, custom input, brightcove, etc.",
+        choices: [
+          {
+            name: "Webtrends",
+            value: 'webtrends',
+            checked: false
+          },
+          {
+            name: "Brightcove",
+            value: 'brightcove',
+            checked: false
+          },
+          {
+            name: "customInput.js",
+            value: 'customInput',
+            checked: false
+          },
+          {
+            name: "Form Validation",
+            value: 'formValidation',
+            checked: false
+          },
+          {
+            name: "IE8 backgroundsize.min.htc",
+            value: 'backgroundSize',
+            checked: false
+          },
+          {
+            name: "get_curr_url php function",
+            value: 'currentUrl',
+            checked: false
+          },
+          {
+            name: "Linkedin signin",
+            value: 'linkedInSignin',
+            checked: false
+          },
+          {
+            name: "Flexbox",
+            value: 'flexbox',
+            checked: false
+          }
+        ]
+      },
     ];
 
     // Save user-selected options from prompts
     this.prompt(prompts, function (props) {
-
-      var bs_path  = '../bower_components/bootstrap/js/';
-
       // Answers to default questions
-      this.includeModernizr  = props.includeModernizr;
-      this.includeBootstrap  = props.includeBootstrap;
-      this.disableResponsive = props.disableResponsive;
-      this.oldIE             = props.oldIE;
-      this.projectName       = props.projectName;
-      this.serverName        = props.serverName;
-      this.engageServer      = props.engageServer;
-      this.engageDbId        = props.engageDbId;
-      this.engageUsername    = props.engageUsername;
-      this.engagePassword    = props.engagePassword;
-      this.countryCode       = props.countryCode;
-      this.languageCode      = props.languageCode;
-      this.regionCode        = props.regionCode;
-      this.campaignId        = props.campaignId;
-      this.includeRespond    = (this.oldIE && !this.disableResponsive && this.includeBootstrap) ? true : false;
+      var features = props.miscOptions;
+      var bs_path  = './bower_components/bootstrap/js/';
+      function hasFeature(feat) { return features.indexOf(feat) !== -1; }
+      this.webtrends          = hasFeature('webtrends');
+      this.brightcove         = hasFeature('brightcove');
+      this.customInput        = hasFeature('customInput');
+      this.formValidation     = hasFeature('formValidation');
+      this.backgroundSize     = hasFeature('backgroundsize');
+      this.currentUrl         = hasFeature('currentUrl');
+      this.linkedInSignin     = hasFeature('linkedInSignin');
+      this.flexbox            = hasFeature('flexbox');
+
+      this.includeModernizr   = props.includeModernizr;
+      this.includeBootstrap   = props.includeBootstrap;
+      this.disableResponsive  = props.disableResponsive;
+      this.oldIE              = props.oldIE;
+      this.projectName        = props.projectName;
+      this.serverName         = props.serverName;
+      this.engageServer       = props.engageServer;
+      this.engageDbId         = props.engageDbId;
+      this.engageUsername     = props.engageUsername;
+      this.engagePassword     = props.engagePassword;
+      this.countryCode        = props.countryCode;
+      this.languageCode       = props.languageCode;
+      this.regionCode         = props.regionCode;
+      this.campaignId         = props.campaignId;
+      this.includeRespond     = (this.oldIE && !this.disableResponsive && this.includeBootstrap) ? true : false;
 
       // Answers to Bootstrap plugin questions
       if (this.includeBootstrap) {
