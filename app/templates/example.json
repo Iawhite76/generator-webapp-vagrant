@@ -1,0 +1,16 @@
+{
+  "example": [
+    {
+      "name": "Alvin",
+      "excerpt": "Lorem ipsum dolor."
+    },
+    {
+      "name": "Simon",
+      "excerpt": "Site amet consectetur."
+    },
+    {
+      "name": "Theodore",
+      "excerpt": "Adipisicing elit sed."
+    }
+  ]
+}

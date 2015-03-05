@@ -74,9 +74,6 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
         type: "confirm",
         name: "includeBootstrap",
         message: "Include Bootstrap 3 LESS?",
-        when: function(response) {
-          return !response.includeAngular;
-        },
         default: true
       },
       {
@@ -84,7 +81,7 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
         name: "bootstrapPlugins",
         message: "Which Bootstrap 3 plugins should be included? (you can add/remove later)",
         when: function(response) {
-          return response.includeBootstrap && !response.includeAngular
+          return response.includeBootstrap
         },
         choices: [
           {
@@ -205,21 +202,20 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
 
   app: function () {
     // create structure and copy/write files
-    var root = 'app/' + this.projectName;
-    this.mkdir();
-    this.mkdir(root + '/css');
-    this.mkdir(root + '/fonts');
-    this.mkdir(root + '/img');
-    this.mkdir(root + '/js');
-    this.mkdir(root + '/less');
+    this.mkdir('app');
+    this.mkdir('app/css');
+    this.mkdir('app/fonts');
+    this.mkdir('app/img');
+    this.mkdir('app/js');
+    this.mkdir('app/less');
 
-    this.copy('robots.txt', root + '/robots.txt');
-    this.copy('htaccess', root + '/.htaccess');
-    this.write(root + '/index.html', this.indexFile);
-    this.copy('main.less', root + '/less/main.less');
-    this.copy('blank.txt', root + '/css/main.css');
-    this.copy('main.js', root + '/js/main.js');
-    this.copy('blank.gif', root + '/img/blank.gif');
+    this.copy('robots.txt', 'app/robots.txt');
+    this.copy('htaccess', 'app/.htaccess');
+    this.write('app/index.php', this.indexFile);
+    this.copy('main.less', 'app/less/main.less');
+    this.copy('blank.txt', 'app/css/main.css');
+    this.copy('main.js', 'app/js/main.js');
+    this.copy('blank.gif', 'app/img/blank.gif');
   },
 
   projectfiles: function () {
