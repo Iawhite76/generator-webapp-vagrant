@@ -158,6 +158,84 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
         message : 'Project server name (e.g. houston.ups.dev)?',
         default : 'myproject.ups.dev'
       },
+      {
+        type: "confirm",
+        name: "setEnvVars",
+        message: "Set Environment Variables?",
+        default: true
+      },
+      {
+        type    : 'input',
+        name    : 'engageServer',
+        message : 'Silverpop engage server?',
+        default : '4',
+        when: function(response) {
+          return (response.setEnvVars)
+        }
+      },
+      {
+        type    : 'input',
+        name    : 'engageDbId',
+        message : 'Silverpop engage DB ID?',
+        default : '10643334',
+        when: function(response) {
+          return (response.setEnvVars)
+        }
+      },
+      {
+        type    : 'input',
+        name    : 'engageUsername',
+        message : 'Silverpop engage Username?',
+        default : 'testuser@t-3.com',
+        when: function(response) {
+          return (response.setEnvVars)
+        }
+      },
+      {
+        type    : 'input',
+        name    : 'engagePassword',
+        message : 'Silverpop engage password?',
+        default : 'testpassword',
+        when: function(response) {
+          return (response.setEnvVars)
+        }
+      },
+      {
+        type    : 'input',
+        name    : 'campaignId',
+        message : 'Campaign ID?',
+        default : 'UPSTEST_12345',
+        when: function(response) {
+          return (response.setEnvVars)
+        }
+      },
+      {
+        type    : 'input',
+        name    : 'countryCode',
+        message : 'Country Code?',
+        default : 'US',
+        when: function(response) {
+          return (response.setEnvVars)
+        }
+      },
+      {
+        type    : 'input',
+        name    : 'languageCode',
+        message : 'Language Code?',
+        default : 'EN',
+        when: function(response) {
+          return (response.setEnvVars)
+        }
+      },
+      {
+        type    : 'input',
+        name    : 'regionCode',
+        message : 'Region Code?',
+        default : 'US',
+        when: function(response) {
+          return (response.setEnvVars)
+        }
+      },
     ];
 
     // Save user-selected options from prompts
@@ -172,6 +250,14 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
       this.oldIE             = props.oldIE;
       this.projectName       = props.projectName;
       this.serverName        = props.serverName;
+      this.engageServer      = props.engageServer;
+      this.engageDbId        = props.engageDbId;
+      this.engageUsername    = props.engageUsername;
+      this.engagePassword    = props.engagePassword;
+      this.countryCode       = props.countryCode;
+      this.languageCode      = props.languageCode;
+      this.regionCode        = props.regionCode;
+      this.campaignId        = props.campaignId;
       this.includeRespond    = (this.oldIE && !this.disableResponsive && this.includeBootstrap) ? true : false;
 
       // Answers to Bootstrap plugin questions
@@ -229,7 +315,15 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
 
     var context = {
       project_name: this.projectName,
-      server_name: this.serverName
+      server_name: this.serverName,
+      engageServer: this.engageServer,
+      engageDbId: this.engageDbId,
+      engageUsername: this.engageUsername,
+      engagePassword: this.engagePassword,
+      campaignId: this.campaignId,
+      countryCode: this.countryCode,
+      languageCode: this.languageCode,
+      regionCode: this.regionCode
     }
 
     this.mkdir('provisioning/vagrant_files/etc');
