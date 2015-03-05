@@ -209,7 +209,7 @@ module.exports = function (grunt) {
 
     shell: {
       startVagrantServer: {
-        command: 'vagrant up'
+        command: 'sudo vagrant up'
       }
     }
 
