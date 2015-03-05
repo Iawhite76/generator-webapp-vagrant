@@ -1,1 +1,26 @@
-node_modules
+### Vagrant ###
+bin
+.vagrant
+
+### IDE ###
+.idea/
+*.iml
+
+### Mac ###
+.DS_Store
+.DS_Store?
+._*
+*~
+*.swp
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+### Environment Variables ###
+.env
+
+### GRUNT ###
+
+**/bower_components
+**/node_modules
