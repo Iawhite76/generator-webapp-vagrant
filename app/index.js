@@ -64,6 +64,7 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
           message : 'Your project name',
           default : 'myProject'
       },
+      {
         type: "confirm",
         name: "includeModernizr",
         message: "Include Modernizr?",
