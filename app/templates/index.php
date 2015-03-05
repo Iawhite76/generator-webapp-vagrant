@@ -1,4 +1,9 @@
-<!doctype html>
+<?php
+    if (isset($_SERVER['ENV']) && $_SERVER['ENV'] !== "dev" && $_SERVER['ENV'] !== "internal") {
+        if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']); exit(); }
+    }
+   
+?><!doctype html>
 <html class="no-js">
   <head>
 
