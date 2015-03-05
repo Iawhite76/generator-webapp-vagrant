@@ -18,5 +18,7 @@
   "trailing": true,
   "smarttabs": true,
   "white": true,
-  "predef": ["$"<% if (includeAngular) { %>, "angular"<% } %>]
+  "globals": {
+    "$": false
+  }
 }
