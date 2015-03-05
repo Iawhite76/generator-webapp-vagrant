@@ -43,7 +43,7 @@
    # | Document Root                                                      |
    # ----------------------------------------------------------------------
 
-   DocumentRoot /var/www/srv/houston_ups_com
+   DocumentRoot /var/www/srv/<%= project_name %>
 
    # ----------------------------------------------------------------------
    # | Options and Overrides                                              |
@@ -55,7 +55,7 @@
        EnableSendfile Off
        EnableMMAP Off
    </Directory>
-   <Directory /var/www/app/houston_ups_com>
+   <Directory /var/www/app/<%= project_name %>>
        Options Indexes FollowSymLinks MultiViews
        AllowOverride All
        Order allow,deny

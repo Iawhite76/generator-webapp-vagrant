@@ -220,13 +220,16 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
     this.mkdir('provisioning');
     this.copy('vagrant_install.sh', 'provisioning/vagrant_install.sh');
 
+    var context = {
+      project_name: this.projectName
+    }
 
     this.mkdir('provisioning/vagrant_files/etc');
     this.copy('hosts', 'provisioning/vagrant_files/etc/hosts');
 
 
     this.mkdir('provisioning/vagrant_files/etc/apache2/sites-available');
-    this.copy('default', 'provisioning/vagrant_files/etc/apache2/sites-available/default');
+    this.template('default', 'provisioning/vagrant_files/etc/apache2/sites-available/default', context);
   },
 
   projectfiles: function () {
