@@ -275,11 +275,6 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
             name: "Linkedin signin",
             value: 'linkedInSignin',
             checked: false
-          },
-          {
-            name: "Flexbox",
-            value: 'flexbox',
-            checked: false
           }
         ]
       },
@@ -298,7 +293,6 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
       this.backgroundSize     = hasFeature('backgroundsize');
       this.currentUrl         = hasFeature('currentUrl');
       this.linkedInSignin     = hasFeature('linkedInSignin');
-      this.flexbox            = hasFeature('flexbox');
 
       this.includeModernizr   = props.includeModernizr;
       this.includeBootstrap   = props.includeBootstrap;
