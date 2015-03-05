@@ -205,6 +205,12 @@ module.exports = function (grunt) {
         },
         files: ['*', './*', './js/*.js', './css/*.css', './{,*/}*.html', './{,*/}*.php']
       }
+    },
+
+    shell: {
+      startVagrantServer: {
+        command: 'sudo vagrant up'
+      }
     }
 
   });
@@ -214,6 +220,7 @@ module.exports = function (grunt) {
     'bowerInstall',
     'jshint',
     'less',
+    'shell:startVagrantServer',
     'watch'
   ]);
 
