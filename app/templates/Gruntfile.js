@@ -14,7 +14,7 @@ module.exports = function (grunt) {
     // Automatically inject Bower JS and CSS components into the HTML blocks
     bowerInstall: {
       srv: {
-        src: ['./index.html'],
+        src: ['./index.php'],
         exclude: [
           <% if (includeModernizr) { %>'bower_components/modernizr/*'<% } if (includeModernizr && includeRespond) { %>,<% } %>
           <% if (includeRespond) { %>'bower_components/respond/*'<% } if (includeBootstrap) { %>,<% } %>
