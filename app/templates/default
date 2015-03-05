@@ -1,0 +1,79 @@
+<VirtualHost *:80>
+
+   # Apache Server Configs v2.11.0 | MIT License
+   # https://github.com/h5bp/server-configs-apache
+
+   # ######################################################################
+   # # BASE CONFIGURATION                                                 #
+   # ######################################################################
+
+   # ----------------------------------------------------------------------
+   # | ServerAdmin, ServerAlias, and ServerName                           |
+   # ----------------------------------------------------------------------
+
+   ServerAdmin upsdev@t-3.com
+   ServerName houston.ups.dev
+   ServerAlias www.houston.ups.dev houston.ups.dev
+
+   # ----------------------------------------------------------------------
+   # | Environment Variables                                              |
+   # ----------------------------------------------------------------------
+
+   SetEnv ENV dev
+
+   # ----------------------------------------------------------------------
+   # | Silverpop Engage Variables                                         |
+   # ----------------------------------------------------------------------
+
+   SetEnv ENGAGE_SERVER  4
+   SetEnv ENGAGE_DB_ID  10643334
+   SetEnv ENGAGE_USERNAME  t3api_upsirm@t-3.com
+   SetEnv ENGAGE_PASSWORD  upsAug143n6a63
+
+   # ----------------------------------------------------------------------
+   # | Form Variables                                                     |
+   # ----------------------------------------------------------------------
+
+   SetEnv CAMPAIGN_ID HOUSTON_20150304
+   SetEnv COUNTRY_CODE US
+   SetEnv LANGUAGE_CODE EN
+   SetEnv REGION_CODE US
+
+   # ----------------------------------------------------------------------
+   # | Document Root                                                      |
+   # ----------------------------------------------------------------------
+
+   DocumentRoot /var/www/srv/houston_ups_com
+
+   # ----------------------------------------------------------------------
+   # | Options and Overrides                                              |
+   # ----------------------------------------------------------------------
+
+   <Directory />
+       Options FollowSymLinks
+       AllowOverride None
+       EnableSendfile Off
+       EnableMMAP Off
+   </Directory>
+   <Directory /var/www/app/houston_ups_com>
+       Options Indexes FollowSymLinks MultiViews
+       AllowOverride All
+       Order allow,deny
+       allow from all
+       EnableSendfile Off
+       EnableMMAP Off
+   </Directory>
+
+   # ----------------------------------------------------------------------
+   # | Logging                                                            |
+   # ----------------------------------------------------------------------
+
+   ErrorLog ${APACHE_LOG_DIR}/upshouston_error.log
+
+   # Possible values include: debug, info, notice, warn, error, crit,
+   # alert, emerg.
+   LogLevel warn
+
+   CustomLog ${APACHE_LOG_DIR}/upshouston_access.log combined
+
+</VirtualHost>

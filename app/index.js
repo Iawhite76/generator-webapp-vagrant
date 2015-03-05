@@ -203,7 +203,6 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
   app: function () {
     // create structure and copy/write files
     this.mkdir('srv');
-    this.mkdir('provisioning');
     this.mkdir('srv/' + this.projectName + '/css');
     this.mkdir('srv/' + this.projectName + '/fonts');
     this.mkdir('srv/' + this.projectName + '/img');
@@ -217,9 +216,22 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
     this.copy('blank.txt', 'srv/' + this.projectName + '/css/main.css');
     this.copy('main.js', 'srv/' + this.projectName + '/js/main.js');
     this.copy('blank.gif', 'srv/' + this.projectName + '/img/blank.gif');
+    
+    this.mkdir('provisioning');
+    this.copy('vagrant_install.sh', 'provisioning/vagrant_install.sh');
+
+
+    this.mkdir('provisioning/vagrant_files/etc');
+    this.copy('hosts', 'provisioning/vagrant_files/etc/hosts');
+
+
+    this.mkdir('provisioning/vagrant_files/etc/apache2/sites-available');
+    this.copy('default', 'provisioning/vagrant_files/etc/apache2/sites-available/default');
   },
 
   projectfiles: function () {
+    this.copy('Vagrantfile', 'Vagrantfile');
+    this.copy('README.md', 'README.md');
     this.copy('_package.json', 'srv/' + this.projectName + '/package.json');
     this.copy('_bower.json', 'srv/' + this.projectName + '/bower.json');
     this.copy('Gruntfile.js', 'srv/' + this.projectName + '/Gruntfile.js');
