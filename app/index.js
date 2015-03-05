@@ -62,7 +62,7 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
           type    : 'input',
           name    : 'projectName',
           message : 'Your project name',
-          default : 'myProject'
+          default : 'ups-my-project'
       },
       {
         type: "confirm",
@@ -202,29 +202,30 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
 
   app: function () {
     // create structure and copy/write files
-    this.mkdir('app');
-    this.mkdir('app/css');
-    this.mkdir('app/fonts');
-    this.mkdir('app/img');
-    this.mkdir('app/js');
-    this.mkdir('app/less');
+    this.mkdir('srv');
+    this.mkdir('provisioning');
+    this.mkdir('srv/' + this.projectName + '/css');
+    this.mkdir('srv/' + this.projectName + '/fonts');
+    this.mkdir('srv/' + this.projectName + '/img');
+    this.mkdir('srv/' + this.projectName + '/js');
+    this.mkdir('srv/' + this.projectName + '/less');
 
-    this.copy('robots.txt', 'app/robots.txt');
-    this.copy('htaccess', 'app/.htaccess');
-    this.write('app/index.php', this.indexFile);
-    this.copy('main.less', 'app/less/main.less');
-    this.copy('blank.txt', 'app/css/main.css');
-    this.copy('main.js', 'app/js/main.js');
-    this.copy('blank.gif', 'app/img/blank.gif');
+    this.copy('robots.txt', 'srv/' + this.projectName + '/robots.txt');
+    this.copy('htaccess', 'srv/' + this.projectName + '/.htaccess');
+    this.write('srv/' + this.projectName + '/index.php', this.indexFile);
+    this.copy('main.less', 'srv/' + this.projectName + '/less/main.less');
+    this.copy('blank.txt', 'srv/' + this.projectName + '/css/main.css');
+    this.copy('main.js', 'srv/' + this.projectName + '/js/main.js');
+    this.copy('blank.gif', 'srv/' + this.projectName + '/img/blank.gif');
   },
 
   projectfiles: function () {
-    this.copy('_package.json', 'package.json');
-    this.copy('_bower.json', 'bower.json');
-    this.copy('Gruntfile.js', 'Gruntfile.js');
-    this.copy('editorconfig', '.editorconfig');
-    this.copy('jshintrc', '.jshintrc');
-    this.copy('bowerrc', '.bowerrc');
+    this.copy('_package.json', 'srv/' + this.projectName + '/package.json');
+    this.copy('_bower.json', 'srv/' + this.projectName + '/bower.json');
+    this.copy('Gruntfile.js', 'srv/' + this.projectName + '/Gruntfile.js');
+    this.copy('editorconfig', 'srv/' + this.projectName + '/.editorconfig');
+    this.copy('jshintrc', 'srv/' + this.projectName + '/.jshintrc');
+    this.copy('bowerrc', 'srv/' + this.projectName + '/.bowerrc');
     this.copy('gitignore', '.gitignore');
     this.copy('gitattributes', '.gitattributes');
   }
