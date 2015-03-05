@@ -233,7 +233,7 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
     }
 
     this.mkdir('provisioning/vagrant_files/etc');
-    this.copy('hosts', 'provisioning/vagrant_files/etc/hosts');
+    this.template('hosts', 'provisioning/vagrant_files/etc/hosts', context);
 
 
     this.mkdir('provisioning/vagrant_files/etc/apache2/sites-available');
