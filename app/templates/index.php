@@ -43,6 +43,9 @@
 
   <!-- endbower -->
   <!-- endbuild -->
+  
+  <!-- TODO only have this script in development -->
+  <script src="//localhost:35729/livereload.js"></script>
 
   </body>
 </html>

@@ -17,8 +17,8 @@ module.exports = function (grunt) {
         src: ['app/index.html'],
         exclude: [
           <% if (includeModernizr) { %>'bower_components/modernizr/*'<% } if (includeModernizr && includeRespond) { %>,<% } %>
-          <% if (includeRespond) { %>'bower_components/respond/*'<% } if (includeBootstrap || includeAngular) { %>,<% } %>
-          <% if (includeBootstrap || includeAngular) { %>'bower_components/bootstrap/dist/*'<% } %>
+          <% if (includeRespond) { %>'bower_components/respond/*'<% } if (includeBootstrap) { %>,<% } %>
+          <% if (includeBootstrap) { %>'bower_components/bootstrap/dist/*'<% } %>
         ]
       }
     },
@@ -153,21 +153,6 @@ module.exports = function (grunt) {
         }
       }
     },
-<% if (includeAngular) { %>
-    // ngmin tries to make the code safe for minification automatically by
-    // using the Angular long form for dependency injection. It doesn't work on
-    // things like resolve or inject so those have to be done manually.
-    ngmin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '.tmp/concat/js',
-          src: 'main.min.js',
-          dest: '.tmp/concat/js'
-        }]
-      }
-    },
-<% } %>
     // Reads HTML for usemin blocks to enable smart builds that automatically
     // concat, minify and revision files. Creates configurations in memory so
     // additional tasks can operate on them
@@ -206,7 +191,7 @@ module.exports = function (grunt) {
         files: ['app/js/*.js'],
         tasks: ['newer:jshint:all'],
         options: {
-          livereload: true
+          livereload: 35729
         }
       },
       styles: {
@@ -222,7 +207,7 @@ module.exports = function (grunt) {
       },
       livereload: {
         options: {
-          livereload: true
+          livereload: 35729
         },
         files: ['*', 'app/*', 'app/js/*.js', 'app/css/*.css', 'app/{,*/}*.html', 'app/{,*/}*.php']
       }
@@ -234,7 +219,6 @@ module.exports = function (grunt) {
   grunt.registerTask('default', [
     'bowerInstall',
     'jshint',
-    'connect:dev',
     'less',
     'watch'
   ]);
@@ -246,14 +230,12 @@ module.exports = function (grunt) {
     'clean:dist',
     'useminPrepare',
     'concat',
-    <% if (includeAngular) { %>'ngmin',<% } %>
     'cssmin',
     'uglify',
     'copy:dist',
     'rev',
     'usemin',
     'htmlmin'
-    // 'cdn'
   ]);
 
   grunt.registerTask('serve', function (target) {
