@@ -51,12 +51,6 @@ module.exports = function (grunt) {
 
     // Connect to a local server
     connect: {
-      options: {
-        port: 8080,
-        hostname: '0.0.0.0',
-        base: 'srv',
-        open: true
-      },
 
       // Inject livereload.js in dev environment for live reloading
       dev: {
