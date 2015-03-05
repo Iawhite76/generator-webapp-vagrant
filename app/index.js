@@ -364,6 +364,7 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
     this.copy('main.less', 'srv/' + this.projectName + '/less/main.less');
     this.copy('blank.txt', 'srv/' + this.projectName + '/css/main.css');
     this.copy('main.js', 'srv/' + this.projectName + '/js/main.js');
+    this.copy('BrightcoveExperiences.js', 'srv/' + this.projectName + '/js/BrightcoveExperiences.js');
     this.copy('blank.gif', 'srv/' + this.projectName + '/img/blank.gif');
     
     this.mkdir('provisioning');

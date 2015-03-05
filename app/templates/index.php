@@ -79,5 +79,8 @@
   <!-- TODO only have this script in development -->
   <script src="//localhost:35729/livereload.js"></script>
 
+  <% if (brightcove) { %>
+  <script type='text/javascript' src='js/BrightcoveExperiences.js'></script>
+  <% } %>
   </body>
 </html>
