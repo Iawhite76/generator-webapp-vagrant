@@ -16,9 +16,9 @@ module.exports = function (grunt) {
       srv: {
         src: ['./index.php'],
         exclude: [
-          <% if (includeModernizr) { %>'bower_components/modernizr/*'<% } if (includeModernizr && includeRespond) { %>,<% } %>
-          <% if (includeRespond) { %>'bower_components/respond/*'<% } if (includeBootstrap) { %>,<% } %>
-          <% if (includeBootstrap) { %>'bower_components/bootstrap/dist/*'<% } %>
+          <% if (!includeModernizr) { %>'bower_components/modernizr/*'<% } if (!includeModernizr && !includeRespond) { %>,<% } %>
+          <% if (!includeRespond) { %>'bower_components/respond/*'<% } if (!includeBootstrap) { %>,<% } %>
+          <% if (!includeBootstrap) { %>'bower_components/bootstrap/dist/*'<% } %>
         ]
       }
     },
@@ -209,7 +209,7 @@ module.exports = function (grunt) {
 
     shell: {
       startVagrantServer: {
-        command: 'sudo vagrant up'
+        command: 'vagrant up'
       }
     }
 
