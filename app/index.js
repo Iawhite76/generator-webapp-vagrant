@@ -344,6 +344,7 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
     this.mkdir('srv/' + this.projectName + '/fonts');
     this.mkdir('srv/' + this.projectName + '/img');
     this.mkdir('srv/' + this.projectName + '/js');
+    this.mkdir('srv/' + this.projectName + '/js/vendor');
     this.mkdir('srv/' + this.projectName + '/less');
 
     this.copy('robots.txt', 'srv/' + this.projectName + '/robots.txt');
@@ -358,15 +359,15 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
     this.copy('vagrant/vagrant_install.sh', 'provisioning/vagrant_install.sh');
 
     if (this.webtrends) {
-      this.copy('js/TBv3.08.6.2webtrends.js', 'srv/' + this.projectName + '/js/TBv3.08.6.2webtrends.js');
+      this.copy('js/TBv3.08.6.2webtrends.js', 'srv/' + this.projectName + '/js/vendor/TBv3.08.6.2webtrends.js');
     }
 
     if (this.brightcove) {
-      this.copy('js/BrightcoveExperiences.js', 'srv/' + this.projectName + '/js/BrightcoveExperiences.js');
+      this.copy('js/BrightcoveExperiences.js', 'srv/' + this.projectName + '/js/vendor/BrightcoveExperiences.js');
     }
 
     if (this.customInput) {
-      this.copy('js/customInput.js', 'srv/' + this.projectName + '/js/customInput.js');
+      this.copy('js/customInput.js', 'srv/' + this.projectName + '/js/vendor/customInput.js');
     }
 
     if (this.backgroundSize) {
@@ -374,7 +375,7 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
     }
 
     if (this.linkedInSignin) {
-      this.copy('js/linkedin-signin.js', 'srv/' + this.projectName + '/js/linkedin-signin.js');
+      this.copy('js/linkedin-signin.js', 'srv/' + this.projectName + '/js/vendor/linkedin-signin.js');
     }
   
     if (this.formValidation) {

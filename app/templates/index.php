@@ -34,7 +34,7 @@
 
   <% if (webtrends) { %>
     <!-- BEGIN WEBTRENDS TAG -->
-    <script type="text/javascript" src="js/TBv3.08.6.2webtrends.js"></script>
+    <script type="text/javascript" src="js/vendor/TBv3.08.6.2webtrends.js"></script>
     <script type="text/javascript">
       //<![CDATA[
         var _tag1 = new WebTrends();
@@ -66,7 +66,7 @@
       scope: r_basicprofile r_emailaddress r_contactinfo
     </script>
 
-    <script type="text/javascript" src="js/linkedin-signin.js"></script>
+    <script type="text/javascript" src="js/vendor/linkedin-signin.js"></script>
   <% } %>
 
   </head>
@@ -94,11 +94,11 @@
   <script src="//localhost:35729/livereload.js"></script>
 
   <% if (brightcove) { %>
-  <script type='text/javascript' src='js/BrightcoveExperiences.js'></script>
+  <script type='text/javascript' src='js/vendor/BrightcoveExperiences.js'></script>
   <% } %>
 
   <% if (customInput) { %>
-  <script type='text/javascript' src='js/BrightcoveExperiences.js'></script>
+  <script type='text/javascript' src='js/vendor/BrightcoveExperiences.js'></script>
   <% } %>
   </body>
 </html>
