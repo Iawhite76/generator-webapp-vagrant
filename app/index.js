@@ -357,37 +357,37 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
     this.mkdir('provisioning');
     this.copy('vagrant/vagrant_install.sh', 'provisioning/vagrant_install.sh');
 
-    if (webtrends) {
-      this.copy('js/TBv3.08.6.2webtrends.js', 'srv' + this.projectName + '/js/TBv3.08.6.2webtrends.js');
+    if (this.webtrends) {
+      this.copy('js/TBv3.08.6.2webtrends.js', 'srv/' + this.projectName + '/js/TBv3.08.6.2webtrends.js');
     }
 
     if (this.brightcove) {
       this.copy('js/BrightcoveExperiences.js', 'srv/' + this.projectName + '/js/BrightcoveExperiences.js');
     }
 
-    if (customInput) {
+    if (this.customInput) {
       this.copy('js/customInput.js', 'srv/' + this.projectName + '/js/customInput.js');
     }
 
-    if (backgroundSize) {
+    if (this.backgroundSize) {
       this.copy('backgroundsize.min.htc', 'srv/' + this.projectName + '/backgroundsize.min.htc');
     }
 
-    if (linkedInSignin) {
-      this.copy('js/linkedin-signin.js', 'srv/' + this.projectName + 'js/linkedin-signin.js');
+    if (this.linkedInSignin) {
+      this.copy('js/linkedin-signin.js', 'srv/' + this.projectName + '/js/linkedin-signin.js');
     }
   
-    if (formValidation) {
+    if (this.formValidation) {
       this.mkdir('srv/' + this.projectName + '/resources');
       this.mkdir('srv/' + this.projectName + '/resources/classes');
 
 
-      this.copy('resources/functions.php', 'srv/' + this.projectName + 'resources/functions.php');
-      this.copy('resources/process.php', 'srv/' + this.projectName + 'resources/process.php');
+      this.copy('resources/functions.php', 'srv/' + this.projectName + '/resources/functions.php');
+      this.copy('resources/process.php', 'srv/' + this.projectName + '/resources/process.php');
 
-      this.copy('resources/classes/ArrayToXml.php', 'srv/' + this.projectName + 'resources/classes/ArrayToXml.php');
-      this.copy('resources/classes/EngagePod.php', 'srv/' + this.projectName + 'resources/classes/EngagePod.php');
-      this.copy('resources/classes/FormValidator.php', 'srv/' + this.projectName + 'resources/classes/FormValidator.php');
+      this.copy('resources/classes/ArrayToXml.php', 'srv/' + this.projectName + '/resources/classes/ArrayToXml.php');
+      this.copy('resources/classes/EngagePod.php', 'srv/' + this.projectName + '/resources/classes/EngagePod.php');
+      this.copy('resources/classes/FormValidator.php', 'srv/' + this.projectName + '/resources/classes/FormValidator.php');
     }
 
     var context = {

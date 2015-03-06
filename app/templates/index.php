@@ -67,7 +67,7 @@
     </script>
 
     <script type="text/javascript" src="js/linkedin-signin.js"></script>
-  <%  %>
+  <% } %>
 
   </head>
 
