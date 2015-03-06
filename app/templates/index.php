@@ -82,5 +82,9 @@
   <% if (brightcove) { %>
   <script type='text/javascript' src='js/BrightcoveExperiences.js'></script>
   <% } %>
+
+  <% if (customInput) { %>
+  <script type='text/javascript' src='js/BrightcoveExperiences.js'></script>
+  <% } %>
   </body>
 </html>

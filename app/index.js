@@ -366,6 +366,10 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
     if (this.brightcove) {
       this.copy('js/BrightcoveExperiences.js', 'srv/' + this.projectName + '/js/BrightcoveExperiences.js');
     }
+
+    if (customInput) {
+      this.copy('js/customInput.js', 'srv/' + this.projectName + '/js/customInput.js');
+    }
     
     var context = {
       project_name: this.projectName,
