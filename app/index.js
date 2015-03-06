@@ -370,6 +370,10 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
     if (customInput) {
       this.copy('js/customInput.js', 'srv/' + this.projectName + '/js/customInput.js');
     }
+
+    if (backgroundSize) {
+      this.copy('backgroundsize.min.htc', 'srv/' + this.projectName + '/backgroundsize.min.htc');
+    }
     
     var context = {
       project_name: this.projectName,
