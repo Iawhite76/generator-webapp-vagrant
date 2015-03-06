@@ -2,6 +2,10 @@
     if (isset($_SERVER['ENV']) && $_SERVER['ENV'] !== "dev" && $_SERVER['ENV'] !== "internal") {
         if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']); exit(); }
     }
+
+    <% if (formValidation) { %>
+      require('resources/functions.php');
+    <% } %>
    
 ?><!doctype html>
 <html class="no-js">

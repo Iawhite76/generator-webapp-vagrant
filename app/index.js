@@ -267,11 +267,6 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
             checked: false
           },
           {
-            name: "get_curr_url php function",
-            value: 'currentUrl',
-            checked: false
-          },
-          {
             name: "Linkedin signin",
             value: 'linkedInSignin',
             checked: false
@@ -291,7 +286,6 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
       this.customInput        = hasFeature('customInput');
       this.formValidation     = hasFeature('formValidation');
       this.backgroundSize     = hasFeature('backgroundsize');
-      this.currentUrl         = hasFeature('currentUrl');
       this.linkedInSignin     = hasFeature('linkedInSignin');
 
       this.includeModernizr   = props.includeModernizr;
@@ -378,7 +372,20 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
     if (linkedInSignin) {
       this.copy('js/linkedin-signin.js', 'srv/' + this.projectName + 'js/linkedin-signin.js');
     }
-    
+  
+    if (formValidation) {
+      this.mkdir('srv/' + this.projectName + '/resources');
+      this.mkdir('srv/' + this.projectName + '/resources/classes');
+
+
+      this.copy('resources/functions.php', 'srv/' + this.projectName + 'resources/functions.php');
+      this.copy('resources/process.php', 'srv/' + this.projectName + 'resources/process.php');
+
+      this.copy('resources/classes/ArrayToXml.php', 'srv/' + this.projectName + 'resources/classes/ArrayToXml.php');
+      this.copy('resources/classes/EngagePod.php', 'srv/' + this.projectName + 'resources/classes/EngagePod.php');
+      this.copy('resources/classes/FormValidator.php', 'srv/' + this.projectName + 'resources/classes/FormValidator.php');
+    }
+
     var context = {
       project_name: this.projectName,
       server_name: this.serverName,
