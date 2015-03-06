@@ -374,6 +374,10 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
     if (backgroundSize) {
       this.copy('backgroundsize.min.htc', 'srv/' + this.projectName + '/backgroundsize.min.htc');
     }
+
+    if (linkedInSignin) {
+      this.copy('js/linkedin-signin.js', 'srv/' + this.projectName + 'js/linkedin-signin.js');
+    }
     
     var context = {
       project_name: this.projectName,

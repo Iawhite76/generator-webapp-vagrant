@@ -34,7 +34,7 @@
     <script type="text/javascript">
       //<![CDATA[
         var _tag1 = new WebTrends();
-        _tag1.dcsid = "";
+        _tag1.dcsid = ""; 
         _tag1.domain = "wtsdc.ups.com";
         _tag1.dcsGetId();
         _tag1.dcsVar();
@@ -42,7 +42,7 @@
         _tag1.dcsAdv();
         _tag1.dcsTag();
         var _tag2 = new WebTrends();
-        _tag2.dcsid = "";
+        _tag2.dcsid = ""; 
         _tag2.domain = "ssdc.ups.com";
         _tag2.fpcdom = _tag1.fpcdom;
         _tag2.onsitedoms = _tag1.onsitedoms;
@@ -54,6 +54,16 @@
       //]]>>
     </script>
   <% } %>
+
+  <% if (linkedInSignin) { %>
+    <script type="text/javascript" src="//platform.linkedin.com/in.js">
+      api_key: // ADD THIS AFTER SETTING UP AT LINKEDIN DEVELOPER SITE
+      authorize: true
+      scope: r_basicprofile r_emailaddress r_contactinfo
+    </script>
+
+    <script type="text/javascript" src="js/linkedin-signin.js"></script>
+  <%  %>
 
   </head>
 
