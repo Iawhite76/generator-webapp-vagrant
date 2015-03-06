@@ -98,7 +98,7 @@
   <% } %>
 
   <% if (customInput) { %>
-  <script type='text/javascript' src='js/vendor/BrightcoveExperiences.js'></script>
+  <script type='text/javascript' src='js/vendor/customInput.js'></script>
   <% } %>
   </body>
 </html>
