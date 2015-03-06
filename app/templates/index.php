@@ -34,7 +34,7 @@
 
   <% if (webtrends) { %>
     <!-- BEGIN WEBTRENDS TAG -->
-    <script type="text/javascript" src="/resources/TBv3.08.6.2webtrends.js"></script>
+    <script type="text/javascript" src="js/TBv3.08.6.2webtrends.js"></script>
     <script type="text/javascript">
       //<![CDATA[
         var _tag1 = new WebTrends();

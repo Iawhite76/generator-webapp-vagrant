@@ -357,6 +357,10 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
     this.mkdir('provisioning');
     this.copy('vagrant/vagrant_install.sh', 'provisioning/vagrant_install.sh');
 
+    if (webtrends) {
+      this.copy('js/TBv3.08.6.2webtrends.js', 'srv' + this.projectName + '/js/TBv3.08.6.2webtrends.js');
+    }
+
     if (this.brightcove) {
       this.copy('js/BrightcoveExperiences.js', 'srv/' + this.projectName + '/js/BrightcoveExperiences.js');
     }
