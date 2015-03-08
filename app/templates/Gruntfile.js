@@ -89,7 +89,8 @@ module.exports = function (grunt) {
             'img/*',
             '{,*/}*.html',
             '{,*/}*.php',
-            'resources/{,*/}*.php',
+          <% if (formValidation) { %>'resources/{,*/}*.php',<% } %>
+          <% if (backgroundSizeHack) { %>'backgroundsize.min.htc',<% } %>
             'fonts/*',
             'json/*'
           ]
@@ -111,7 +112,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: 'dist',
-          src: '{,*/}*.html',
+          src: '{,*/}*.php',
           dest: 'dist'
         }]
       }
