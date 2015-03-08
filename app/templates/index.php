@@ -26,7 +26,7 @@
 
   
   </head>
-  <script type="text/javascript">{{template home}}</script>
+  
   <body>
 
   <div class="container">
