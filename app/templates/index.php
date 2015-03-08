@@ -45,22 +45,14 @@
   <% if (includeModernizr) { %>
   <script src="bower_components/modernizr/modernizr.js"></script>
   <% } %>
+  <% if (includeBootstrap) { %>
   <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <% } %>
   <!-- endbower -->
-  <script src="./bower_components/bootstrap/js/affix.js"></script>
-  <script src="./bower_components/bootstrap/js/alert.js"></script>
-  <script src="./bower_components/bootstrap/js/button.js"></script>
-  <script src="./bower_components/bootstrap/js/carousel.js"></script>
-  <script src="./bower_components/bootstrap/js/collapse.js"></script>
-  <script src="./bower_components/bootstrap/js/dropdown.js"></script>
-  <script src="./bower_components/bootstrap/js/modal.js"></script>
-  <script src="./bower_components/bootstrap/js/popover.js"></script>
-  <script src="./bower_components/bootstrap/js/scrollspy.js"></script>
-  <script src="./bower_components/bootstrap/js/tab.js"></script>
-  <script src="./bower_components/bootstrap/js/tooltip.js"></script>
-  <script src="./bower_components/bootstrap/js/transition.js"></script>
   <script src="//localhost:35729/livereload.js"></script>
+  <% if (linkedInSignin) { %>
   <script type="text/javascript" src="js/vendor/linkedin-signin.js"></script>
+  <% } %>
   <% if (brightcove) { %>
   <script type='text/javascript' src='js/vendor/BrightcoveExperiences.js'></script>
   <% } %>
