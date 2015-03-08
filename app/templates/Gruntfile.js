@@ -154,7 +154,7 @@ module.exports = function (grunt) {
       js: {
         src: [
           'bower_components/jquery/dist/jquery.min.js',
-          <% if (includeBootstrap) { %>'bower_components/bootstrap/dist/js/bootstrap.min.js',<%= } %>
+          <% if (includeBootstrap) { %>'bower_components/bootstrap/dist/js/bootstrap.min.js',<% } %>
           <% if (includeModernizr) { %>'bower_components/modernizr/modernizr.js',<% } %>
           <% if (includeRespond) { %>'bower_components/respond/dest/respond.min.js',<% } %>
           'js/vendor/*.js',
