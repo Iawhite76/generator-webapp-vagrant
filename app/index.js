@@ -321,20 +321,6 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
     this.indexFile = this.readFileAsString(path.join(this.sourceRoot(), 'index.php'));
     this.indexFile = this.engine(this.indexFile, this);
 
-    // Wire Bootstrap plugins into a bootstrap.min.js min block
-    if (this.includeBootstrap) {
-      this.indexFile = this.appendScripts(this.indexFile, 'js/bootstrap.min.js', this.bootstrapPlugins);
-    }
-
-    // Wire additional scripts into a main.min.js min block
-    var appendedScripts = ['js/main.js'];
-    
-    this.indexFile = this.appendFiles({
-      html: this.indexFile,
-      fileType: 'js',
-      optimizedPath: 'js/main.min.js',
-      sourceFileList: appendedScripts
-    });
   },
 
   app: function () {

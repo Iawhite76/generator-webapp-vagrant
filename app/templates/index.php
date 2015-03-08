@@ -18,15 +18,15 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="shortcut icon" href="/favicon.ico">
     <!-- build:css css/production.min.css -->
-    <link rel="stylesheet" href="css/main.css" />
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <!-- endbower -->
+    <link rel="stylesheet" href="css/main.css" />
     <!-- endbuild -->
 
   
   </head>
-
+  <script type="text/javascript">{{template home}}</script>
   <body>
 
   <div class="container">
