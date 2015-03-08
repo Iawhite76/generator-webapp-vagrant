@@ -89,8 +89,8 @@ module.exports = function (grunt) {
             'img/*',
             '{,*/}*.html',
             '{,*/}*.php',
-          <% if (formValidation) { %>'resources/{,*/}*.php',<% } %>
-          <% if (backgroundSizeHack) { %>'backgroundsize.min.htc',<% } %>
+            <% if (formValidation) { %>'resources/{,*/}*.php',<% } %>
+            <% if (backgroundSizeHack) { %>'backgroundsize.min.htc',<% } %>
             'fonts/*',
             'json/*'
           ]
@@ -154,7 +154,7 @@ module.exports = function (grunt) {
       js: {
         src: [
           'bower_components/jquery/dist/jquery.min.js',
-          'bower_components/bootstrap/dist/js/bootstrap.min.js',
+          <% if (includeBootstrap) { %>'bower_components/bootstrap/dist/js/bootstrap.min.js',<%= } %>
           <% if (includeModernizr) { %>'bower_components/modernizr/modernizr.js',<% } %>
           <% if (includeRespond) { %>'bower_components/respond/dest/respond.min.js',<% } %>
           'js/vendor/*.js',
@@ -164,8 +164,8 @@ module.exports = function (grunt) {
       },
       css: {
         src: [
-          'bower_components/bootstrap/dist/bootstrap-theme.min.css',
-          'bower_components/bootstrap/dist/bootstrap.min.css',
+          <% if (includeBootstrap) { %>'bower_components/bootstrap/dist/bootstrap-theme.min.css',<% } %>
+          <% if (includeBootstrap) { %>'bower_components/bootstrap/dist/bootstrap.min.css',<% } %>
           'css/*.css'
         ],
         dest: '.tmp/css/production.css'
