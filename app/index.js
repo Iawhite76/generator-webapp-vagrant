@@ -263,7 +263,7 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
           },
           {
             name: "IE8 backgroundsize.min.htc",
-            value: 'backgroundSize',
+            value: 'backgroundSizeHack',
             checked: false
           },
           {
@@ -285,7 +285,7 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
       this.brightcove         = hasFeature('brightcove');
       this.customInput        = hasFeature('customInput');
       this.formValidation     = hasFeature('formValidation');
-      this.backgroundSize     = hasFeature('backgroundsize');
+      this.backgroundSizeHack = hasFeature('backgroundSizeHack');
       this.linkedInSignin     = hasFeature('linkedInSignin');
 
       this.includeModernizr   = props.includeModernizr;
@@ -370,7 +370,7 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
       this.copy('js/customInput.js', 'srv/' + this.projectName + '/js/vendor/customInput.js');
     }
 
-    if (this.backgroundSize) {
+    if (this.backgroundSizeHack) {
       this.copy('backgroundsize.min.htc', 'srv/' + this.projectName + '/backgroundsize.min.htc');
     }
 
