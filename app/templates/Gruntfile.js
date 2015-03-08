@@ -88,6 +88,7 @@ module.exports = function (grunt) {
             '.htaccess',
             'img/*',
             '{,*/}*.html',
+            '{,*/}*.php',
             'fonts/*',
             'json/*'
           ]
@@ -147,32 +148,79 @@ module.exports = function (grunt) {
         }
       }
     },
-    // Reads HTML for usemin blocks to enable smart builds that automatically
-    // concat, minify and revision files. Creates configurations in memory so
-    // additional tasks can operate on them
-    useminPrepare: {
-      options: {
-        dest: 'dist',
-        flow: {
-          html: {
-            steps: {
-              js: ['concat', 'uglifyjs'],
-              css: ['cssmin']
-            },
-            post: {}
-          }
-        }
+    concat: {
+      js: {
+        src: [
+          'bower_components/jquery/dist/jquery.min.js',
+          'bower_components/bootstrap/dist/js/bootstrap.min.js',
+          <% if (includeModernizr) { %>'bower_components/modernizr/modernizr.js',<% } %>
+          <% if (includeRespond) { %>'bower_components/respond/dest/respond.min.js',<% } %>
+          'js/vendor/*.js',
+          'js/*.js',
+        ],
+        dest: '.tmp/js/production.js'
       },
-      html: './index.html'
+      css: {
+        src: [
+          'bower_components/bootstrap/dist/bootstrap-theme.min.css',
+          'bower_components/bootstrap/dist/bootstrap.min.css',
+          'css/*.css'
+        ],
+        dest: '.tmp/css/production.css'
+      }
     },
+
+    uglify: {
+      build: {
+        src: '.tmp/js/production.js',
+        dest: 'dist/js/production.min.js'
+      }
+    },
+
+    cssmin: {
+      build: {
+        options: {
+          banner: '/* Minified version of production.css file */'
+        },
+        files: {
+          'dist/css/production.min.css': ['.tmp/css/production.css']
+        }
+      }
+    },
+
 
     // Performs rewrites based on rev and the useminPrepare configuration
     usemin: {
       options: {
-        assetsDirs: ['dist', 'dist/img']
+        dirs: ['dist', 'dist/img']
       },
-      html: ['dist/{,*/}*.html'],
+      html: ['dist/{,*/}*.php'],
       css: ['dist/css/{,*/}*.css']
+    },
+    // Reads HTML for usemin blocks to enable smart builds that automatically
+    // concat, minify and revision files. Creates configurations in memory so
+    // additional tasks can operate on them
+    // useminPrepare: {
+    //   options: {
+    //     dest: 'dist',
+    //     flow: {
+    //       html: {
+    //         steps: {
+    //           js: ['concat', 'uglifyjs'],
+    //           css: ['cssmin']
+    //         },
+    //         post: {}
+    //       }
+    //     }
+    //   },
+    //   html: 'index.php'
+    // },
+
+    useminPrepare: {
+      html: 'index.php',
+      options: {
+        dest: 'dist'
+      }
     },
 
     // Watch specific file types for changes and reload them
@@ -208,14 +256,15 @@ module.exports = function (grunt) {
     },
 
     shell: {
-      startVagrantServer: {
-        command: 'sudo vagrant up',
-        failOnError: false // prevents EPIPE error if user hits return again after entering sudo password
-      },
       pleaseWait: {
         command: function () {
           return 'echo Please wait: if this is your first time to run grunt the vagrant machine may take a few minutes to initialize.';
-        }
+        },
+        failOnError: false // prevents EPIPE error if user hits return again after entering sudo password
+      },
+      startVagrantServer: {
+        command: 'sudo vagrant up',
+        failOnError: false // prevents EPIPE error if user hits return again after entering sudo password
       }
     }
 
@@ -223,8 +272,8 @@ module.exports = function (grunt) {
 
   // Default grunt tasks. Runs with "grunt" or "grunt default"
   grunt.registerTask('default', [
-    'bowerInstall',
     'jshint',
+    'bowerInstall',
     'less',
     'shell:startVagrantServer',
     'shell:pleaseWait',
@@ -233,13 +282,14 @@ module.exports = function (grunt) {
 
   // Build task to generate files for deployment. Runs with "grunt build"
   grunt.registerTask('build', [
-    'bowerInstall',
     'jshint',
+    'bowerInstall',
     'clean:dist',
     'useminPrepare',
-    'concat',
-    'cssmin',
-    'uglify',
+    'concat:js',
+    'concat:css',
+    'cssmin:build',
+    'uglify:build',
     'copy:dist',
     'rev',
     'usemin',
