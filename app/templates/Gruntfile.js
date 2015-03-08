@@ -197,25 +197,7 @@ module.exports = function (grunt) {
       html: ['dist/{,*/}*.php'],
       css: ['dist/css/{,*/}*.css']
     },
-    // Reads HTML for usemin blocks to enable smart builds that automatically
-    // concat, minify and revision files. Creates configurations in memory so
-    // additional tasks can operate on them
-    // useminPrepare: {
-    //   options: {
-    //     dest: 'dist',
-    //     flow: {
-    //       html: {
-    //         steps: {
-    //           js: ['concat', 'uglifyjs'],
-    //           css: ['cssmin']
-    //         },
-    //         post: {}
-    //       }
-    //     }
-    //   },
-    //   html: 'index.php'
-    // },
-
+    
     useminPrepare: {
       html: 'index.php',
       options: {
