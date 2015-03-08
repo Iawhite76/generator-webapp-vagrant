@@ -89,6 +89,7 @@ module.exports = function (grunt) {
             'img/*',
             '{,*/}*.html',
             '{,*/}*.php',
+            'resources/{,*/}*.php',
             'fonts/*',
             'json/*'
           ]
@@ -266,6 +267,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'jshint',
     'bowerInstall',
+    'less',
     'clean:dist',
     'useminPrepare',
     'concat:js',
