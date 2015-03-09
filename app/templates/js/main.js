@@ -2,6 +2,7 @@
  * Project Scripts
  */
 
+<% if(includeModernizr) { %>
 /* jshint ignore:start */
 
 /* Add Modernizr test for mobile */
@@ -11,6 +12,7 @@ Modernizr.addTest('ismobile', function () {
 
 /* jshint ignore:end */
 
+<% } %> // if (includeModernizr)
 
 <% if(webtrends) { %>
 /* jshint ignore:start */

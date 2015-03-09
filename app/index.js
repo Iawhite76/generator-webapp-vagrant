@@ -77,64 +77,6 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
         default: true
       },
       {
-        type: "checkbox",
-        name: "bootstrapPlugins",
-        message: "Which Bootstrap 3 plugins should be included? (you can add/remove later)",
-        when: function(response) {
-          return response.includeBootstrap
-        },
-        choices: [
-          {
-            name: "affix.js",
-            checked: false
-          },
-          {
-            name: "alert.js",
-            checked: false
-          },
-          {
-            name: "button.js",
-            checked: false
-          },
-          {
-            name: "carousel.js",
-            checked: false
-          },
-          {
-            name: "collapse.js",
-            checked: false
-          },
-          {
-            name: "dropdown.js",
-            checked: false
-          },
-          {
-            name: "modal.js",
-            checked: false
-          },
-          {
-            name: "popover.js",
-            checked: false
-          },
-          {
-            name: "scrollspy.js",
-            checked: false
-          },
-          {
-            name: "tab.js",
-            checked: false
-          },
-          {
-            name: "tooltip.js",
-            checked: false
-          },
-          {
-            name: "transition.js",
-            checked: false
-          }
-        ]
-      },
-      {
         type: "confirm",
         name: "disableResponsive",
         message: "Disable Responsive Layout?",
@@ -303,14 +245,6 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
       this.regionCode         = props.regionCode;
       this.campaignId         = props.campaignId;
       this.includeRespond     = (this.oldIE && !this.disableResponsive && this.includeBootstrap) ? true : false;
-
-      // Answers to Bootstrap plugin questions
-      if (this.includeBootstrap) {
-        this.bootstrapPlugins  = props.bootstrapPlugins;
-        for ( var i = 0; i < this.bootstrapPlugins.length; i++ ) {
-          this.bootstrapPlugins[i] = bs_path + this.bootstrapPlugins[i];
-        }
-      }
 
       done();
     }.bind(this));

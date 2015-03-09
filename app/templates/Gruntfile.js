@@ -260,8 +260,8 @@ module.exports = function (grunt) {
     'jshint',
     'bowerInstall',
     'less',
-    'shell:startVagrantServer',
     'shell:pleaseWait',
+    'shell:startVagrantServer',
     'watch'
   ]);
 
