@@ -324,6 +324,20 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
   },
 
   app: function () {
+
+    var context = {
+      project_name: this.projectName,
+      server_name: this.serverName,
+      engageServer: this.engageServer,
+      engageDbId: this.engageDbId,
+      engageUsername: this.engageUsername,
+      engagePassword: this.engagePassword,
+      campaignId: this.campaignId,
+      countryCode: this.countryCode,
+      languageCode: this.languageCode,
+      regionCode: this.regionCode
+    }
+
     // create structure and copy/write files
     this.mkdir('srv');
     this.mkdir('srv/' + this.projectName + '/css');
@@ -375,19 +389,6 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
       this.copy('resources/classes/ArrayToXml.php', 'srv/' + this.projectName + '/resources/classes/ArrayToXml.php');
       this.copy('resources/classes/EngagePod.php', 'srv/' + this.projectName + '/resources/classes/EngagePod.php');
       this.copy('resources/classes/FormValidator.php', 'srv/' + this.projectName + '/resources/classes/FormValidator.php');
-    }
-
-    var context = {
-      project_name: this.projectName,
-      server_name: this.serverName,
-      engageServer: this.engageServer,
-      engageDbId: this.engageDbId,
-      engageUsername: this.engageUsername,
-      engagePassword: this.engagePassword,
-      campaignId: this.campaignId,
-      countryCode: this.countryCode,
-      languageCode: this.languageCode,
-      regionCode: this.regionCode
     }
 
     this.mkdir('provisioning/vagrant_files/etc');

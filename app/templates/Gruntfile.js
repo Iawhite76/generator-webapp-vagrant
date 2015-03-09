@@ -157,6 +157,7 @@ module.exports = function (grunt) {
           <% if (includeBootstrap) { %>'bower_components/bootstrap/dist/js/bootstrap.min.js',<% } %>
           <% if (includeModernizr) { %>'bower_components/modernizr/modernizr.js',<% } %>
           <% if (includeRespond) { %>'bower_components/respond/dest/respond.min.js',<% } %>
+          <% if (webtrends && formValidation) { %>'bower_components/jquery.cookie/jquery.cookie.js',<% } %>
           'js/vendor/*.js',
           'js/*.js',
         ],

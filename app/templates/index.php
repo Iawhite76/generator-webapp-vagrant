@@ -48,6 +48,9 @@
   <% if (includeBootstrap) { %>
   <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
   <% } %>
+  <% if (webtrends && formValidation) { %>
+  <script src="bower_components/jquery.cookie/jquery.cookie.js"></script>
+  <% } %>
   <!-- endbower -->
   <script src="//localhost:35729/livereload.js"></script>
   <% if (linkedInSignin) { %>
