@@ -8,7 +8,9 @@
     <% } %>
    
 ?><!doctype html>
-<html class="no-js">
+<!--[if IE 8]>         <html lang="en-US" class="no-js lt-ie10 lt-ie9 ie8"> <![endif]-->
+<!--[if IE 9]>         <html lang="en-US" class="no-js lt-ie10 ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html lang="en-US" class="no-js"> <!--<![endif]-->
   <head>
 
     <meta charset="utf-8">
