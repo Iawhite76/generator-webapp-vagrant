@@ -14,6 +14,33 @@ Modernizr.addTest('ismobile', function () {
 
 <% } %> // if (includeModernizr)
 
+
+<% if(brightcove) { %>
+/**
+ * Get FLV url for brightcove video using Media API
+ * @function getFLVURL
+ */
+function getFLVURL() {
+  var videoID = $(/* target the element with brightcove video id data attribute */).attr('data-video');
+  var url = 'https://api.brightcove.com/services/library?command=find_video_by_id&video_id=' + videoID + '&video_fields=name,FLVURL,linkURL&media_delivery=http&token=nXZiA6HgwJuTfF6ZE9daHEEalrOrrcYrGwdfASgqqqu2jxa_-ynWGQ..';
+  var result = null;
+  $.ajax({
+    url: url,
+    type: 'get',
+    dataType: 'jsonp',
+    async: true,
+    success: function (data) {
+      if (data) {
+        $(/* target the element with brightcove video id data attribute */).attr('href', data.FLVURL);
+      } else {
+        $(/* target the element with brightcove video id data attribute */).attr('href', '#');
+      }
+    }
+  });
+}
+<% } %> // end if (brightcove)
+
+
 <% if(webtrends) { %>
 /* jshint ignore:start */
 
