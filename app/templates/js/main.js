@@ -1,6 +1,8 @@
 /*!
  * Project Scripts
  */
+'use strict';
+
 
 <% if(includeModernizr) { %>
 /* jshint ignore:start */
@@ -16,6 +18,8 @@ Modernizr.addTest('ismobile', function () {
 
 
 <% if(brightcove) { %>
+/* jshint ignore:start */
+
 /**
  * Get FLV url for brightcove video using Media API
  * @function getFLVURL
@@ -38,6 +42,9 @@ function getFLVURL() {
     }
   });
 }
+
+/* jshint ignore:end */
+
 <% } %> // end if (brightcove)
 
 
@@ -117,8 +124,6 @@ function getQueryString(desired) {
 /* jshint ignore:end */
 
 <% } %> // end webtrends conditional
-
-'use strict';
 
 $(function () {
 
