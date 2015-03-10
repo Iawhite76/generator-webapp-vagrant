@@ -251,6 +251,28 @@ module.exports = function (grunt) {
         command: 'sudo vagrant up',
         failOnError: false // prevents EPIPE error if user hits return again after entering sudo password
       }
+    },
+
+    imagemin: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: 'img',
+          src: '{,*/}*.{gif,jpeg,jpg,png}',
+          dest: 'dist/img'
+        }]
+      }
+    },
+
+    svgmin: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: 'img',
+          src: '{,*/}*.svg',
+          dest: 'dist/img'
+        }]
+      }
     }
 
   });
@@ -267,15 +289,17 @@ module.exports = function (grunt) {
 
   // Build task to generate files for deployment. Runs with "grunt build"
   grunt.registerTask('build', [
+    'clean:dist',
     'jshint',
     'bowerInstall',
     'less',
-    'clean:dist',
     'useminPrepare',
     'concat:js',
     'concat:css',
     'cssmin:build',
     'uglify:build',
+    'imagemin',
+    'svgmin',
     'copy:dist',
     'rev',
     'usemin',
