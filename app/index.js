@@ -318,6 +318,10 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
     if (this.linkedInSignin) {
       this.copy('js/linkedin-signin.js', 'srv/' + this.projectName + '/js/vendor/linkedin-signin.js');
     }
+
+    if (this.multiPage) {
+      this.copy('resources/classes/base.php', 'srv/' + this.projectName + '/resources/classes/base.php');
+    }
   
     if (this.formValidation) {
       this.mkdir('srv/' + this.projectName + '/resources');
