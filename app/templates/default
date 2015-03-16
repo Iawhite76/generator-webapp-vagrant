@@ -49,13 +49,7 @@
    # | Options and Overrides                                              |
    # ----------------------------------------------------------------------
 
-   <Directory />
-       Options FollowSymLinks
-       AllowOverride None
-       EnableSendfile Off
-       EnableMMAP Off
-   </Directory>
-   <Directory /var/www/app/<%= project_name %>>
+   <Directory /var/www/srv/<%= project_name %>>
        Options Indexes FollowSymLinks MultiViews
        AllowOverride All
        Order allow,deny
