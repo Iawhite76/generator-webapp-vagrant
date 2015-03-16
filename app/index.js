@@ -95,6 +95,12 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
         }
       },
       {
+        type: "confirm",
+        name: "multiPage",
+        message: "Is this site multipage? This will enable pages, partials and basic routing.",
+        default: false
+      },
+      {
         type    : 'input',
         name    : 'serverName',
         message : 'Project server name (e.g. houston.ups.dev)?',
@@ -234,6 +240,7 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
       this.includeBootstrap   = props.includeBootstrap;
       this.disableResponsive  = props.disableResponsive;
       this.oldIE              = props.oldIE;
+      this.multiPage          = props.multiPage;
       this.projectName        = props.projectName;
       this.serverName         = props.serverName;
       this.engageServer       = props.engageServer;
