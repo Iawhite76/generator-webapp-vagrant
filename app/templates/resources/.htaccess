@@ -1,0 +1,5 @@
+# Restrict access to the resources folder
+<Files *.php>
+    Order Deny,Allow
+    Deny from all
+</Files>
