@@ -89,7 +89,7 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
         type: "confirm",
         name: "oldIE",
         message: "Support less than IE9? (adds respond.js in an IE block)",
-        default: false,
+        default: true,
         when: function(response) {
           return ( response.includeBootstrap && !response.disableResponsive )
         }
