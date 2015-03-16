@@ -40,24 +40,21 @@
           
           $f3 = require('resources/classes/base.php');
           $f3->route('GET /',
-              function() {
-                echo 'homepage';
-                  //include 'pages/home.php';
-              }
+            function() {
+              include 'pages/home.php';
+            }
           );
 
           $f3->route('GET /about',
-              function() {
-                echo 'about';
-                  //include 'pages/about.php';
-              }
+            function() {
+              include 'pages/about.php';
+            }
           );
 
           $f3->route('GET /sample-page',
-              function() {
-                echo 'sample page';
-                  //include 'pages/sample-page.php';
-              }
+            function() {
+              include 'pages/sample-page.php';
+            }
           );
 
           $f3->run();

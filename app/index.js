@@ -321,6 +321,15 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
 
     if (this.multiPage) {
       this.copy('resources/classes/base.php', 'srv/' + this.projectName + '/resources/classes/base.php');
+      
+      this.mkdir('srv/' + this.projectName + '/pages');
+      this.mkdir('srv/' + this.projectName + '/partials');
+
+      this.copy('pages/about.php', 'srv/' + this.projectName + '/pages/about.php');
+      this.copy('pages/home.php', 'srv/' + this.projectName + '/pages/home.php');
+      this.copy('pages/sample-page.php', 'srv/' + this.projectName + '/pages/sample-page.php');
+
+      this.copy('partials/sample-partial.php', 'srv/' + this.projectName + '/partials/sample-partial.php');
     }
   
     if (this.formValidation) {
