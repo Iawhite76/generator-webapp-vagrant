@@ -326,6 +326,7 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
 
       this.copy('resources/functions.php', 'srv/' + this.projectName + '/resources/functions.php');
       this.copy('resources/process.php', 'srv/' + this.projectName + '/resources/process.php');
+      this.copy('resources/.htaccess', 'srv/' + this.projectName + '/resources/.htaccess');
 
       this.copy('resources/classes/ArrayToXml.php', 'srv/' + this.projectName + '/resources/classes/ArrayToXml.php');
       this.copy('resources/classes/EngagePod.php', 'srv/' + this.projectName + '/resources/classes/EngagePod.php');
