@@ -35,7 +35,37 @@
     <div class="header"> </div><!-- /.header -->
 
     <div class="content">
+        <% if (multiPage) { %>
+        <?php 
+          
+          $f3 = require('resources/classes/base.php');
+          $f3->route('GET /',
+              function() {
+                echo 'homepage';
+                  //include 'pages/home.php';
+              }
+          );
+
+          $f3->route('GET /about',
+              function() {
+                echo 'about';
+                  //include 'pages/about.php';
+              }
+          );
+
+          $f3->route('GET /sample-page',
+              function() {
+                echo 'sample page';
+                  //include 'pages/sample-page.php';
+              }
+          );
+
+          $f3->run();
+          
+        ?>
+        <% } else { %>
         <h1>Ready</h1>
+        <% } %>
     </div><!-- /.content -->
 
     <div class="footer"> </div><!-- /.footer -->
