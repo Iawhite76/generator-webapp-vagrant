@@ -321,6 +321,7 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
 
     if (this.multiPage) {
       this.copy('resources/classes/base.php', 'srv/' + this.projectName + '/resources/classes/base.php');
+      this.copy('resources/router.php', 'srv/' + this.projectName + '/resources/router.php');
       
       this.mkdir('srv/' + this.projectName + '/pages');
       this.mkdir('srv/' + this.projectName + '/partials');
