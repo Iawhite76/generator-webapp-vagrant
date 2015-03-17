@@ -319,9 +319,15 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
       this.copy('js/linkedin-signin.js', 'srv/' + this.projectName + '/js/vendor/linkedin-signin.js');
     }
 
+    if (this.formValidation || this.multiPage) {
+      this.mkdir('srv/' + this.projectName + '/resources');
+      this.mkdir('srv/' + this.projectName + '/resources/classes');
+    }
+
     if (this.multiPage) {
       this.copy('resources/classes/base.php', 'srv/' + this.projectName + '/resources/classes/base.php');
       this.copy('resources/router.php', 'srv/' + this.projectName + '/resources/router.php');
+      this.copy('resources/.htaccess', 'srv/' + this.projectName + '/resources/.htaccess');
       
       this.mkdir('srv/' + this.projectName + '/pages');
       this.mkdir('srv/' + this.projectName + '/partials');
@@ -334,9 +340,6 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
     }
   
     if (this.formValidation) {
-      this.mkdir('srv/' + this.projectName + '/resources');
-      this.mkdir('srv/' + this.projectName + '/resources/classes');
-
 
       this.copy('resources/functions.php', 'srv/' + this.projectName + '/resources/functions.php');
       this.copy('resources/process.php', 'srv/' + this.projectName + '/resources/process.php');

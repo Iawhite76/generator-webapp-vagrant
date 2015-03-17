@@ -89,7 +89,7 @@ module.exports = function (grunt) {
             'img/*',
             '{,*/}*.html',
             '{,*/}*.php',
-            <% if (formValidation) { %>'resources/{,*/}*.php',<% } %>
+            <% if (formValidation || multiPage) { %>'resources/**',<% } %>
             <% if (backgroundSizeHack) { %>'backgroundsize.min.htc',<% } %>
             'fonts/*',
             'json/*'
