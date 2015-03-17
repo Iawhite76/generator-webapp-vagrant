@@ -248,7 +248,7 @@ module.exports = function (grunt) {
         failOnError: false // prevents EPIPE error if user hits return again after entering sudo password
       },
       startVagrantServer: {
-        command: 'sudo vagrant up',
+        command: 'sudo vagrant up --provision',
         failOnError: false // prevents EPIPE error if user hits return again after entering sudo password
       }
     },
