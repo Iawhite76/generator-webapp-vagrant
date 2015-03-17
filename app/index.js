@@ -190,6 +190,11 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
         message: "Options to add tagging, custom input, brightcove, etc.",
         choices: [
           {
+            name: "UPS Fonts",
+            value: 'includeFonts',
+            checked: false
+          },
+          {
             name: "Webtrends",
             value: 'webtrends',
             checked: false
@@ -235,6 +240,7 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
       this.formValidation     = hasFeature('formValidation');
       this.backgroundSizeHack = hasFeature('backgroundSizeHack');
       this.linkedInSignin     = hasFeature('linkedInSignin');
+      this.includeFonts       = hasFeature('includeFonts');
 
       this.includeModernizr   = props.includeModernizr;
       this.includeBootstrap   = props.includeBootstrap;
@@ -298,6 +304,12 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
     
     this.mkdir('provisioning');
     this.copy('vagrant/vagrant_install.sh', 'provisioning/vagrant_install.sh');
+
+    if (this.includeFonts) {
+      this.directory('fonts', 'srv/' + this.projectName + '/fonts');
+
+      this.copy('fonts.less', 'srv/' + this.projectName + '/less/fonts.less');
+    }
 
     if (this.webtrends) {
       this.copy('js/TBv3.08.6.2webtrends.js', 'srv/' + this.projectName + '/js/vendor/TBv3.08.6.2webtrends.js');
