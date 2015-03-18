@@ -7,7 +7,12 @@
 <% if(includeModernizr) { %>
 /* jshint ignore:start */
 
-/* Add Modernizr test for mobile */
+/* Add Modernizr test for mobile 
+Example usage: 
+	if(Modernizr.ismobile) {
+	  $('.hidden-mobile').hide();
+	}
+*/
 Modernizr.addTest('ismobile', function () {
  return navigator.userAgent.match(/(Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini)/g) ? true : false;
 });
