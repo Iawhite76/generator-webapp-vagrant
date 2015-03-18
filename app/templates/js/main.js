@@ -136,10 +136,12 @@ $(function () {
 
 /* jshint ignore:start */
 
+<% if(linkedInSignin) { %>	
 	$(/* Target linkedin button here */).on('click', function (e) {
 	  e.preventDefault();
 	  onLinkedInLoad();
 	});
+<% } %>
 
 	/* jshint ignore:start */
 
