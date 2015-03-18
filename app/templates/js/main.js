@@ -4,7 +4,7 @@
 'use strict';
 
 
-<% if(includeModernizr) { %>
+<% if (includeModernizr) { %>
 /* jshint ignore:start */
 
 /* Add Modernizr test for mobile 
@@ -136,7 +136,7 @@ $(function () {
 
 /* jshint ignore:start */
 
-<% if(linkedInSignin) { %>	
+<% if (linkedInSignin) { %>	
 	$(/* Target linkedin button here */).on('click', function (e) {
 	  e.preventDefault();
 	  onLinkedInLoad();
