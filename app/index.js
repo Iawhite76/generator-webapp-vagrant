@@ -360,6 +360,10 @@ var T3WebappGenerator = yeoman.generators.Base.extend({
       this.copy('resources/classes/ArrayToXml.php', 'srv/' + this.projectName + '/resources/classes/ArrayToXml.php');
       this.copy('resources/classes/EngagePod.php', 'srv/' + this.projectName + '/resources/classes/EngagePod.php');
       this.copy('resources/classes/FormValidator.php', 'srv/' + this.projectName + '/resources/classes/FormValidator.php');
+
+      if (this.multiPage) {
+        this.copy('partials/sample-form.php', 'srv/' + this.projectName + '/partials/sample-form.php');
+      }
     }
 
     this.mkdir('provisioning/vagrant_files/etc');
