@@ -190,7 +190,7 @@ $(function () {
 	  <% } %> // end if (webtrends)
  
 	  /* Process form */
-	  $(/* Target you form here and edit below */).on('submit', function (e) {
+	  $(/* Target your form here and edit below */).on('submit', function (e) {
 
 	      e.preventDefault();
 
