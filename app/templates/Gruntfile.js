@@ -31,7 +31,7 @@ module.exports = function (grunt) {
         flatten: false
       },
       dist: {
-        src: ['./dist/{,*/}*.html', './dist/css/{,*/}*.css']
+        src: ['./dist/{,*/}*.php', './dist/css/{,*/}*.css']
       }
     },
 
