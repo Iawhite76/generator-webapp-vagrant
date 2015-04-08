@@ -9,7 +9,7 @@ $ npm install -g yo
 ```
 <p>Next, install the T3 webapp generator:</p>
 ```
-npm install -g https://stash.t-3.com/projects/TASSETS/repos/global/browse/yeoman-generators/generator-t3-vagrant-v1.tgz\?raw
+npm install -g https://github.com/Iawhite76/yeoman-generators/generator-t3-vagrant-v1.tgz\?raw
 ```
 <p>Finally, create a project folder and initiate the T3 webapp generator:</p>
 ```
